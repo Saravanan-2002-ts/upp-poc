@@ -1,182 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BluePrint</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <script src="./mock.js"></script>
-    <style>
-        html {
-            width: fit-content;
-        }
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<style>
+    .btn {
+        padding: 7px;
+        margin: 5px;
+        background: linear-gradient(0deg, rgb(35, 132, 237) 0%, rgb(36, 137, 246) 100%) transparent;
+        color: white;
+        border-radius: 5px;
+        width: 11em;
+        white-space: wrap;
+        word-wrap: break-word;
+        font-size: 13.2px;
+    }
 
-        body {
-            background-color: white;
-        }
-
-        .shadow-max {
-            box-shadow: 15px 15px 20px 5px rgb(168 168 168);
-        }
-
-        .btn-outline-dark {
-            --bs-btn-hover-bg: #24a0ed;
-            background-color: white;
-        }
-
-        .arrow-line-up-down {
-            position: relative;
-            height: 100px;
-            width: 2px;
-            background-color: black;
-            /* margin: 50px auto; */
-            margin-right: 10%;
-        }
-
-        .arrow-line-right-left {
-            position: relative;
-            width: 150px;
-            height: 2px;
-            background-color: black;
-            margin: 50px auto;
-        }
-
-        .btn {
-            white-space: wrap;
-        }
-
-
-        .up::before {
-            content: "";
-            position: absolute;
-            top: -10%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 10px solid transparent;
-            border-bottom-color: black;
-        }
-
-        .down::before {
-            content: "";
-            position: absolute;
-            bottom: -10%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 10px solid transparent;
-            border-top-color: black;
-            top: 90%;
-        }
-
-        .left::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: -10%;
-            transform: translateY(-50%);
-            border: 10px solid transparent;
-            border-right-color: black;
-        }
-
-        .right::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: -10%;
-            transform: translateY(-50%);
-            border: 10px solid transparent;
-            border-left-color: black;
-        }
-
-        .diamond-shape {
-            background: #fff;
-            height: 100px;
-            text-align: center;
-            transform: rotate(45deg);
-            width: 100px;
-            margin-left: 25px;
-        }
-
-        p {
-            text-align: center;
-            transform: rotate(45);
-            color: #333;
-            display: table-cell;
-            height: 60px;
-            transform: rotate(-45deg);
-            vertical-align: middle;
-            width: 60px;
-            white-space: nowrap;
-        }
-    </style>
+    .btn:hover {
+        /* background-color: #0061CA; */
+        color: white;
+    }
+</style>
 
 <body>
-    <div class="h-100 w-100 d-flex align-items-center justify-content-center">
-        <div class="mt-2 d-flex flex-column" id="flow">
-            <div class="d-flex flex-row-reverse text-wrap">
+    <div class="h-100 flex-row justify-content-center align-items-center">
 
-                <button type="button" class="p-2 m-2 btn btn-outline-dark shadow-max">Company Estimate Received</button>
-                <div class="d-flex flex-row-reverse">
-                    <div class="arrow-line-right-left right"></div>
-                </div>
-                <div class="d-flex flex-row">
-                    <button type="button" class="p-2 m-2 btn btn-outline-dark shadow-max ">Claim Delivered to
-                        company</button>
-                </div>
-                <div class="d-flex flex-row-reverse">
-                    <div class="arrow-line-right-left right"></div>
-                </div>
-                <button type="button" class="p-2 m-2 btn btn-outline-dark shadow-max">Sent to client for aging</button>
-                <div class="d-flex flex-row-reverse">
-                    <div class="arrow-line-right-left right"></div>
-                </div>
-                <div class="d-flex flex-row">
-                    <button type="button" class="p-2 m-2 btn btn-outline-dark shadow-max">D&D Estimate Complete</button>
-                </div>
-                <div class="d-flex flex-row-reverse">
-                    <div class="arrow-line-right-left right"></div>
-                </div>
-                <button type="button" class="p-2 m-2 btn btn-outline-dark shadow-max">Site Visit Completed</button>
-            </div>
-            <div class="d-flex" style="margin-left: 95%;">
-                <div class="arrow-line-up-down" style="height: 112px;"></div>
-            </div>
-            <div class="arrow-line-right-left"
-                style="width: 90%; margin-left: 5.1%; margin-top: 0%; margin-bottom: 0%;"></div>
-            <div class="d-flex" style="margin-left: 5.1%;">
-                <div class="arrow-line-up-down" style="height: 112px;"></div>
-            </div>
-            <div class="d-flex flex-row">
-                <button type="button" class="p-2 m-2 btn btn-outline-dark shadow-max">Comparison Stage</button>
-                <div class="d-flex">
-                    <div class="arrow-line-right-left right"></div>
-                </div>
-                <div class="d-flex flex-row">
-                    <button type="button" class="p-2 m-2 btn btn-outline-dark shadow-max">Supplemental Stage</button>
-                    <div class="d-flex">
-                        <div class="arrow-line-right-left right"></div>
-                    </div>
-                </div>
-                <div class="d-flex flex-row">
-                    <button type="button" class="p-2 m-2 btn btn-outline-dark shadow-max">Hold Back Stage</button>
-                    <div class="d-flex">
-                        <div class="arrow-line-right-left right"></div>
-                    </div>
-                </div>
-                <div class="d-flex flex-row">
-                    <button type="button" class="p-2 btn btn-outline-dark shadow-max diamond-shape">
-                        <p>Closed
-                            Won</p>
-                    </button>
-                </div>
-            </div>
-        </div>
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">Site Visit <br> Completed</button>
+
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">D&D Estimate Complete</button>
+
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">Sent to client <br> for aging</button>
+
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">Claim Delivered to company</button>
+
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">Company Estimate Received</button>
+
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">Comparison <br> Stage</button>
+
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">Supplemental <br> Stage</button>
+
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">Hold Back <br> Stage</button>
+
+        <button type="button" class="btn btn-primary .bg-primary.bg-gradient">Closed <br> Won</button>
     </div>
+    </div>
+    </div>
+
 </body>
 
 </html>
